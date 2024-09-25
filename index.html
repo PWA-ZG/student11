@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>75. Dubrovačke ljetne igre</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="/manifest.json" />
+  </head>
+  <body>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js"
+    ></script>
+
+    <script type="module" src="app.js"></script>
+    <div id="app">
+      <h1>Dubrovačke ljetne igre</h1>
+      <div id="info-container"></div>
+      <div id="hardcoded-images-container"></div>
+      <p>Slike koje su prenijeli korisnici:</p>
+      <div id="firebase-images-container"></div>
+    </div>
+
+    <button id="captureButton">Prenesi sliku:</button>
+
+    <div id="imagePreviewContainer" style="display: none">
+      <img
+        id="imagePreview"
+        alt="Vaša slika"
+        style="max-width: 100%; height: auto"
+      />
+      <button id="confirmButton">Potvrdi prijenos</button>
+    </div>
+
+    <script>
+      navigator.serviceWorker
+        .register("service-worker.js")
+        .then((reg) => console.log("Service Worker registered.", reg))
+        .catch((err) => {
+          console.error("Service Worker registration failed:", err);
+        });
+    </script>
+  </body>
+</html>
